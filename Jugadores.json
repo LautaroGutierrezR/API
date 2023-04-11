@@ -1,0 +1,33 @@
+{
+"Jugadores":
+
+
+[{
+    "Nombre":"Erling Haaland",
+    "Fecha":"20/6/1999",
+    "Equipo": "Manchester City",
+    "Posicion":"DC"},
+
+    {
+        "Nombre":"Lautaro Acosta",
+        "Fecha":"20/6/1999",
+        "Equipo": "Lanus",
+        "Posicion":"EI" 
+    },
+
+    {
+        "Nombre":"Pepe Sand",
+        "Fecha":"20/6/1999",
+        "Equipo": "Lanus",
+        "Posicion":"DC" 
+    },
+
+
+    {
+        "Nombre":"Kyle Walker",
+        "Fecha":"20/6/1999",
+        "Equipo": "Manchester City",
+        "Posicion":"LI" 
+    }
+]
+}

@@ -1,5 +1,5 @@
 const express = require('express');
-const { ListaJugadores, AgregarJugadores } = require('./ListJugadores');
+const { ListaJugadores, AgregarJugadores } = require('./ListaJugadores');
 const api = express();
 const cors=require("cors");
 const puerto=3090;

@@ -4,25 +4,14 @@ const api = express();
 const cors=require("cors");
 const puerto=3090;
 require('./config/database')
-const modelJugadores= require('./MoldeJugadores')
-
-
-const cargarJugador= async()=>{
-    const nuevoJugador= new modelJugadores ({
-        Nombre:"Hola",
-        Nacimiento:"Base",
-        Equipo:"alberto",
-        Posicion:"bobina",
-
-    })
-   let resultado= await modelJugadores.collection.insertOne(nuevoJugador)
-   console.log(resultado)
-}
-cargarJugador()
-
-
 api.use(express.json());
 api.use(cors());
+
+api.use('',require('./routes/routes'))
+
+
+
+
 
 api.get("/home",(req,res)=>{
     res.send("corriendo en el puerto ASDFASDFG ");

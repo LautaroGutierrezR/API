@@ -1,17 +1,45 @@
-//requerir DB let mongoose
 
-const{traerDocCompleta,cargarJugador}=require('../utils/funcionesMongo')
+const{traerDocCompleta,cargarJugador,eliminarUnJugador}=require('../utils/funcionesMongo')
 
+//const {agregarJugador}require('../model/MoldeJugadores')
 
 const TraerInfoMongo=async(req,res)=>{
    let infoMongo= await traerDocCompleta()
-   console.log(infoMongo)
+   //console.log(infoMongo)
    res.send(infoMongo);
 }
 
 
 
 
+  const agregarJugador =async(req,res)=>{
+   //const imagen="http:localhost:3090/public"+req.file.nombreArchivo
+   //creamos una variable en la cual ponemos los name del formulario y lo igualamos a req.body es decir la peticion del front, 
+   let { Nombre_jugador,nacimiento_jugador,Equipo_jugador,Posicion}= req.body
+   let Rutaimagen=req.file.filename
+   console.log(req.file)
+    let newJugador = await cargarJugador(Rutaimagen,Nombre_jugador,nacimiento_jugador,Equipo_jugador,Posicion)
+    //luego creamos la variable new jugador y usando la funcion cargar jugador le pasamos como parametros los inputs del formulario
+    //console.log(newJugador)
+     //res.send(newJugador);
+     res.redirect('http://localhost:3000/Jugadores')
+     
+ }
 
 
-module.exports={TraerInfoMongo}
+
+ const BorrarJugador =async(req,res)=>{
+   
+   //creamos una variable en la cual ponemos los name del formulario y lo igualamos a req.body es decir la peticion del front, 
+   let { Nombre_JugadorDeleteado}= req.body
+   console.log(req.body)
+    let newJugador = await eliminarUnJugador({Nombre:`${Nombre_JugadorDeleteado}`})
+    //luego creamos la variable new jugador y usando la funcion eliminarUnJugador jugador le pasamos como parametros los inputs del formulario
+    
+     res.redirect('http://localhost:3000/Jugadores')
+     
+ }
+
+
+
+module.exports={TraerInfoMongo,agregarJugador,BorrarJugador}

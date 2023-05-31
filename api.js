@@ -3,11 +3,14 @@ const { ListaJugadores, AgregarJugadores } = require('./ListaJugadores');
 const api = express();
 const cors=require("cors");
 const puerto=3090;
+const upload= require('./Multer/CargarImagen'); //esto despues deberia ser desglozado 
+const mongoose= require('mongoose')
 require('./config/database')
 api.use(express.json());
 api.use(cors());
-
+api.use(express.urlencoded({extended:true}))
 api.use('',require('./routes/routes'))
+
 
 
 
@@ -18,7 +21,16 @@ api.get("/home",(req,res)=>{
 })
 
 api.get("/ListaJugadores",ListaJugadores);
-api.post("/AgregarJugadores",AgregarJugadores);
+//api.post("/AgregarJugadores",upload.single("imagen"),AgregarJugadores);
+
+
+api.post("/CargarImagen",upload.single('imagen'),(req,res)=>{
+    console.log(req.file.filename)
+    res.send("Foto Cargada")
+   
+
+     
+})
 
 
 api.listen(puerto,()=>{

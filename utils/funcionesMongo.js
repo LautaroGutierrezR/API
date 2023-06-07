@@ -45,10 +45,17 @@ const eliminarUnJugador=async(filtro)=>{
 //eliminarUnJugador({Nombre:"Pepo De La Vega"})
 
 
+const actualizarJugador= async(filtro,datoActualizado)=>{
+    let resultado= await modelJugadores.updateOne(filtro,{$set:datoActualizado})
+    console.log(resultado)
+}
+//actualizarJugador({Nombre:"Lautaro Gutierrez R"},{Equipo:"Banus"})
 
 
 
 
 
 
-module.exports={traerDocCompleta,cargarJugador,eliminarUnJugador}
+
+
+module.exports={traerDocCompleta,cargarJugador,eliminarUnJugador,actualizarJugador}

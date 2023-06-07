@@ -1,5 +1,5 @@
 
-const{traerDocCompleta,cargarJugador,eliminarUnJugador}=require('../utils/funcionesMongo')
+const{traerDocCompleta,cargarJugador,eliminarUnJugador,actualizarJugador}=require('../utils/funcionesMongo')
 
 //const {agregarJugador}require('../model/MoldeJugadores')
 
@@ -41,5 +41,21 @@ const TraerInfoMongo=async(req,res)=>{
  }
 
 
+   const ModificarJugador =async(req,res)=>{
+   
+   //creamos una variable en la cual ponemos los name del formulario y lo igualamos a req.body es decir la peticion del front, 
+   let { NombreJugadorActualizar,select,Dato_actualizado}= req.body
+   let setConDato = {select,Dato_actualizado};
+ 
+   
+   
+   console.log(NombreJugadorActualizar,select,Dato_actualizado)
+    let newJugador = await actualizarJugador({Nombre:`${NombreJugadorActualizar}`},{setConDato})
+   
+    res.redirect('http://localhost:3000/Jugadores')
+     
+ }
 
-module.exports={TraerInfoMongo,agregarJugador,BorrarJugador}
+ //actualizarJugador({Nombre:"Lautaro Gutierrez R"},{Equipo:"Banus"})
+
+module.exports={TraerInfoMongo,agregarJugador,BorrarJugador,ModificarJugador}

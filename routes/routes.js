@@ -8,7 +8,7 @@ router.get('/InfoCompleta',TraerInfoMongo);
 router.get("/ListaJugadores",ListaJugadores);
 
 router.post('/AgregarJugador',upload.single('imagen'),agregarJugador);
-router.post('/BorrarJugador',verificacionUsuario,BorrarJugador);
+router.post('/BorrarJugador',BorrarJugador);
 router.post('/Logeo',Logeo)
 
 router.put('/ModificarJugador',ModificarJugador);

@@ -40,9 +40,8 @@ const traerDocCompleta=async()=>{
 const eliminarUnJugador=async(filtro)=>{
     let resultado=await modelJugadores.deleteOne(filtro);
     return resultado
-    console.log("jugador eliminado")
 }
-//eliminarUnJugador({Nombre:"Pepo De La Vega"})
+//eliminarUnJugador({Nombre:"Roberto"})
 
 
 const actualizarJugador= async(filtro,datoActualizado)=>{

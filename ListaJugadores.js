@@ -42,8 +42,6 @@ const ListaJugadores=(req,res)=>{
 
 };
 
-const AgregarJugadores=(req,res)=>{
 
-};
-module.exports={ListaJugadores,AgregarJugadores}
+module.exports={ListaJugadores}
     
